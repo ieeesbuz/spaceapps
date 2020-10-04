@@ -7,7 +7,7 @@ import config
 import followfollowers as ff
 import functions as fc
 import concienciar
-print(1)
+
 class Count(object):
 
     def __init__(self):
@@ -32,7 +32,7 @@ def mensajes(api, vector, count):
     if count._count==24:
         count.__init__()
 
-print(1)
+
 f = open("mss.txt", 'r')
 vector=[""]
 i=0
@@ -41,16 +41,16 @@ for line in f:
     i+=1
 f.close()
 vector.pop(0)
-print(2)
+api=config.create_api()
 count = Count()
 
-schedule.every(5).minutes.do(autoreply)
-schedule.every(10).minutes.do(followforfollow)
-schedule.every().monday.at("15:00").do(ranking)
-schedule.every().day.at("15:00").do(mensajes, vector, count)
+schedule.every(20).seconds.do(autoreply, api)
+schedule.every(30).seconds.do(followforfollow, api)
+schedule.every().monday.at("22:24").do(ranking,api)
+schedule.every().day.at("22:23").do(mensajes,api,vector, count)
 
-api=config.create_api
-vector
+
+
 while True:
     schedule.run_pending()
     time.sleep(1)

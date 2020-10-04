@@ -39,10 +39,9 @@ def get_city_info(comm,city_name):
 # Return randomized image
 def create_image(comm):
 	city = get_random_city(comm)
-	#city = city + " ,USA"
-
+	#city = city + " ,USA" 
 	response = simple_image_download()
-	image_dir = response.download(city , 1)
+	image_dir = response.download(city , 1, extensions={'.jpg'})
 	
 	return image_dir
 
@@ -65,6 +64,18 @@ def create_ranking_plot(comm, number_cities, top_button):
 	plot_dir = './plots/ranking.jpg'
 	plt.savefig(plot_dir)
 	return plot_dir
+
+# Return spacific city image
+def create_city_image(name):
+    city = name
+    #city = city + " ,USA"
+    if not city:
+        print('no city')
+    else:
+        response = simple_image_download()
+        image_dir = response.download(city , 1, extensions={'.jpg'})
+    print(image_dir)
+    return image_dir
 
 
 

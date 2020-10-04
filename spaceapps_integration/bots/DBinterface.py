@@ -45,6 +45,11 @@ class nasaDBinterface(object):
 
 		return image_dir
 
+	def get_city_image(self, name):
+		image_dir = ut.create_city_image(name)
+
+		return image_dir
+
 	def get_plot(self,n_cities):
 		comm = ut.conexion(self.param_dic)
 		
