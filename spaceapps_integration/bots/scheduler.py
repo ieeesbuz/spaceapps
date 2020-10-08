@@ -44,15 +44,15 @@ vector.pop(0)
 api=config.create_api()
 count = Count()
 
-schedule.every(20).seconds.do(autoreply, api)
-schedule.every(30).seconds.do(followforfollow, api)
-schedule.every().monday.at("22:24").do(ranking,api)
-schedule.every().day.at("22:23").do(mensajes,api,vector, count)
+schedule.every(150).seconds.do(autoreply, api)
+schedule.every(300).seconds.do(followforfollow, api)
+schedule.every().monday.at("15:00").do(ranking,api)
+schedule.every().day.at("19:00").do(mensajes,api,vector, count)
 
 
 
 while True:
     schedule.run_pending()
-    time.sleep(1)
+    time.sleep(5)
 
 
